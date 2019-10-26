@@ -1,6 +1,8 @@
 package com.example.bunnyears.ui.main;
 
 import android.content.Context;
+import android.widget.DatePicker;
+import android.widget.Switch;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -29,7 +31,19 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        switch (position)
+        {
+            case 0:
+                DatabaseTab databaseTab = new DatabaseTab();
+                return databaseTab;
+            case 1:
+                PictureTab pictureTab = new PictureTab();
+                return pictureTab;
+            default:
+                return null;
+
+        }
+        //return PlaceholderFragment.newInstance(position + 1);
     }
 
     @Nullable

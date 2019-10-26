@@ -1,4 +1,4 @@
-package com.example.bunnyears;
+package com.example.bunnyears.ui.main;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.example.bunnyears.R;
 
 public class PictureTab extends Fragment {
     @Nullable
