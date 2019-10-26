@@ -2,5 +2,10 @@
     <string name="app_name">bunnyEars</string>
     <string name="tab_text_1">Data Base</string>
     <string name="tab_text_2">Picture</string>
+<<<<<<< HEAD
     <string name="title_activity_basic">BasicActivity</string>
+=======
+    <string name="action_settings">Settings</string>
+
+>>>>>>> a8502e618d879b702925b07773b50cdcd6e14943
 </resources>
