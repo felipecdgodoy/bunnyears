@@ -1,6 +1,8 @@
 package com.example.bunnyears.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
+import android.provider.MediaStore;
 import android.widget.DatePicker;
 import android.widget.Switch;
 
@@ -11,6 +13,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.bunnyears.R;
+
+import static com.example.bunnyears.ui.main.PictureTab.REQUEST_IMAGE_CAPTURE;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -45,7 +49,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         }
         //return PlaceholderFragment.newInstance(position + 1);
     }
-
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
