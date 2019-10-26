@@ -26,8 +26,9 @@
         </activity>
         <activity
             android:name=".BasicActivity"
-            android:label="@string/title_activity_basic"
+            android:label="@string/title_activity_basic"></activity>
 
+        <activity
             android:name=".SpeechActivity"
             android:label="@string/title_activity_speech"
             android:theme="@style/AppTheme.NoActionBar"></activity>

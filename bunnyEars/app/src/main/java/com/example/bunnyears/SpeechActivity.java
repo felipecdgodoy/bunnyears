@@ -9,16 +9,21 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.speech.RecognitionListener;
+import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class SpeechActivity extends AppCompatActivity {
 
     private TextToSpeech myTTS;
-
+    private SpeechRecognizer mySpeechRecognizer;
 
 
     @Override
@@ -38,6 +43,77 @@ public class SpeechActivity extends AppCompatActivity {
         });
 
         initializeTextToSpeech();
+        initiliazeSpeechRecognizer();
+    }
+
+    private void initiliazeSpeechRecognizer() {
+        if (SpeechRecognizer.isRecognitionAvailable(this)) {
+            mySpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+            mySpeechRecognizer.setRecognitionListener(new RecognitionListener() {
+                @Override
+                public void onReadyForSpeech(Bundle params) {
+
+                }
+
+                @Override
+                public void onBeginningOfSpeech() {
+
+                }
+
+                @Override
+                public void onRmsChanged(float rmsdB) {
+
+                }
+
+                @Override
+                public void onBufferReceived(byte[] buffer) {
+
+                }
+
+                @Override
+                public void onEndOfSpeech() {
+
+                }
+
+                @Override
+                public void onError(int error) {
+
+                }
+
+                @Override
+                public void onResults(Bundle bundle) {
+                    List<String> results = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                    processResults(results.get(0));
+                }
+
+                @Override
+                public void onPartialResults(Bundle partialResults) {
+
+                }
+
+                @Override
+                public void onEvent(int eventType, Bundle params) {
+
+                }
+            });
+        }
+    }
+
+    private void processResults(String command) {
+        speak(command);
+        /*
+        command = command.toLowerCase();
+        if(command.contains("time")) {
+            Date now = new Date();
+            String time = DateUtils.formatDateTime(this, now.getTime(),
+                    DateUtils.FORMAT_SHOW_TIME);
+            speak("The time is " + time);
+        }
+        */
+    }
+
+    private void speak(String message) {
+        myTTS.speak(message, TextToSpeech.QUEUE_FLUSH, null);
     }
 
     @Override
@@ -56,15 +132,7 @@ public class SpeechActivity extends AppCompatActivity {
                     finish();
                 } else {
                     myTTS.setLanguage(Locale.US);
-                    speak("I have an important message: Josh is a cara de baunilha");
-                }
-            }
-
-            private void speak(String message) {
-                if(Build.VERSION.SDK_INT >= 21) {
-                    myTTS.speak(message, TextToSpeech.QUEUE_FLUSH, null, null);
-                } else {
-                    myTTS.speak(message, TextToSpeech.QUEUE_FLUSH, null);
+                    speak("Hello! Welcome to Bunny Ears!");
                 }
             }
         });
