@@ -8,7 +8,7 @@
     tools:context=".SplashActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logoImageView"
         android:layout_width="340dp"
         android:layout_height="379dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,4 +18,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.125"
         app:srcCompat="@drawable/bunny_ears" />
+
+    <ImageView
+        android:id="@+id/tealBunnyImageView"
+        android:layout_width="146dp"
+        android:layout_height="134dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImageView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/teal_bunny" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
