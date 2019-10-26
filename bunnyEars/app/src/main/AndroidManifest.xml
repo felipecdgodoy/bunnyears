@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.bunnyears">
-
+    <meta-data
+        android:name="com.google.android.gms.vision.DEPENDENCIES"
+        android:value="ocr"/>
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -29,13 +31,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".BasicActivity"
-            android:label="@string/title_activity_basic"></activity>
 
         <activity
             android:name=".SpeechActivity"
-            android:label="@string/title_activity_speech"
+            android:label="@string/title_activity_speech"></activity>
+        <activity
+            android:name=".PictureActivity"
+            android:label="@string/title_activity_basic"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
