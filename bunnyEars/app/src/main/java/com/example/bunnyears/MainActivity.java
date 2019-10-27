@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,8 +26,11 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextToSpeech myTTS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +170,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SplashActivity.myMediaPlayer.release();
+                initializeTextToSpeech();
+                myTTS.speak("Take a picture of your favorite book!", TextToSpeech.QUEUE_FLUSH, null);
                 dispatchTakePictureIntent();
             }
         });
@@ -255,4 +262,19 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.startActivity(myIntent);
         }
     }
+
+    private void initializeTextToSpeech() {
+        myTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(myTTS.getEngines().size() == 0) {
+                    finish();
+                } else {
+                    myTTS.setLanguage(Locale.US);
+                }
+            }
+        });
+    }
+
+
 }

@@ -132,7 +132,7 @@ public class SpeechActivity extends AppCompatActivity {
         }
     }
 
-    private void speak(String message) {
+    public void speak(String message) {
         myTTS.speak(message, TextToSpeech.QUEUE_FLUSH, null);
     }
 
