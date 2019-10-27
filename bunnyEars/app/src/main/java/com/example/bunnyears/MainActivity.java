@@ -3,29 +3,19 @@ package com.example.bunnyears;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.core.content.FileProvider;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Environment;
-import android.os.Handler;
-
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,6 +30,52 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ImageButton movie = findViewById(R.id.movieButton);
+        movie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, PictureActivity.class);
+                i.putExtra("database", "movie");
+                MainActivity.this.startActivity(i);
+                MainActivity.this.finish();
+            }
+        });
+
+        ImageButton book = findViewById(R.id.bookButton);
+        book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, PictureActivity.class);
+                i.putExtra("database", "book");
+                MainActivity.this.startActivity(i);
+                MainActivity.this.finish();
+            }
+        });
+
+        ImageButton children = findViewById(R.id.childrenButton);
+        children.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, PictureActivity.class);
+                i.putExtra("database", "children");
+                MainActivity.this.startActivity(i);
+                MainActivity.this.finish();
+            }
+        });
+
+        ImageButton alph = findViewById(R.id.alphabetButton);
+        alph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, PictureActivity.class);
+                i.putExtra("database", "alph");
+                MainActivity.this.startActivity(i);
+                MainActivity.this.finish();
+            }
+        });
+
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

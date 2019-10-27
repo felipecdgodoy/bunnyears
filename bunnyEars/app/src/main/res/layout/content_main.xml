@@ -6,15 +6,57 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:background="@color/colorPrimary">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/movieButton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:contentDescription="@string/Movie"
+        android:src="@drawable/ic_launcher_movie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_launcher_movie"
+        tools:srcCompat="@drawable/ic_launcher_movie" />
 
+    <ImageButton
+        android:id="@+id/bookButton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="60dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="@string/Book"
+        android:src="@drawable/ic_launcher_books"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_launcher_books" />
+
+    <ImageButton
+        android:id="@+id/childrenButton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="45dp"
+        android:contentDescription="@string/Children"
+        android:src="@drawable/ic_launcher_children"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieButton"
+        tools:src="@drawable/ic_launcher_children" />
+
+    <ImageButton
+        android:id="@+id/alphabetButton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="60dp"
+        android:contentDescription="@string/Alphabet"
+        android:src="@drawable/ic_launcher_letters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieButton"
+        tools:srcCompat="@drawable/ic_launcher_letters" />
 </androidx.constraintlayout.widget.ConstraintLayout>
