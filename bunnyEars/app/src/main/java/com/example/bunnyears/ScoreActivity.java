@@ -21,7 +21,7 @@ public class ScoreActivity extends AppCompatActivity {
     List<String> results;
     List<String> words;
     Uri uri;
-    private TextToSpeech myTTS;
+    public TextToSpeech myTTS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +99,7 @@ public class ScoreActivity extends AppCompatActivity {
                     finish();
                 } else {
                     myTTS.setLanguage(Locale.US);
-                    speak("Press playback to hear your score");
+                    speak("Press playback to hear the solution");
                 }
             }
         });

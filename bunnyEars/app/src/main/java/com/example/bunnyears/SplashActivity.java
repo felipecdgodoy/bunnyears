@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.RectF;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
@@ -12,7 +13,8 @@ import android.graphics.Path;
 
 
 public class SplashActivity extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 1000;
+    private static int SPLASH_TIME_OUT = 4000;
+    public static MediaPlayer myMediaPlayer;
     ImageView tealBunnyImageView;
     ObjectAnimator tealBunnyObjectAnimator;
     Path bunnyPath;
@@ -22,6 +24,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        myMediaPlayer = MediaPlayer.create(SplashActivity.this, R.raw.song);
+        myMediaPlayer.start();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
