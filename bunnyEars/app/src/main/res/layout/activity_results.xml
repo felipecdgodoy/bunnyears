@@ -39,6 +39,7 @@
         android:paddingEnd="30dp"
         android:text="@string/pb"
         android:textSize="12pt"
+        android:drawableRight="@drawable/ic_play_circle_outline_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/score" />
