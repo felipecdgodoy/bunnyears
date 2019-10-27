@@ -146,7 +146,7 @@ public class PictureActivity extends AppCompatActivity {
                             for (Text element : line.getComponents()) {
                                 //extract scanned text words here
                                 words = words + element.getValue() + ", ";
-                                wordResults.add(element.getValue());
+                                wordResults.add(cleanString(element.getValue()));
                             }
                         }
                     }
@@ -254,6 +254,11 @@ public class PictureActivity extends AppCompatActivity {
                 @Override
                 public void onResults(Bundle bundle) {
                     currResults = Arrays.asList(bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION).get(0).split(" "));
+                    if (currResults.size() == 1) {
+                        if (currResults.get(0).length() < 4) {
+                            currResults = Arrays.asList(currResults.get(0).split("(?!^)"));
+                        }
+                    }
                     confidences = bundle.getFloatArray(SpeechRecognizer.CONFIDENCE_SCORES);
                     Log.e("Tag", currResults.toString());
                     // TODO: Update screen with results
@@ -298,5 +303,8 @@ public class PictureActivity extends AppCompatActivity {
         trimmedStrings.clear();
         trimmedStrings.addAll(set);
         return trimmedStrings;
+    }
+    public static String cleanString(String str){
+        return str.replaceAll("[^A-Za-z0-9]", "");
     }
 }

@@ -1,6 +1,8 @@
 package com.example.bunnyears;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,8 +21,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,10 +39,23 @@ public class MainActivity extends AppCompatActivity {
         movie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, PictureActivity.class);
-                i.putExtra("database", "movie");
-                MainActivity.this.startActivity(i);
-                MainActivity.this.finish();
+                InputStream song1 = this.getClass().getClassLoader().getResourceAsStream("/res/drawable/lilostitch.jpg");
+                String s = getPackageName();
+                PackageManager m = getPackageManager();
+                try {
+                    PackageInfo p = m.getPackageInfo(s, 0);
+                    s = p.applicationInfo.dataDir;
+                    Uri song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.lilostitch2);
+                    Intent myIntent = new Intent(MainActivity.this, PictureActivity.class);
+                    //myIntent.putExtra("image", imageBitmap); //Optional parameters
+                    myIntent.putExtra("uri", song1Url.toString());
+                    Log.e("Test",song1Url.toString());
+                    startActivityForResult(myIntent, REQUEST_TAKE_PHOTO);
+                    ; //<- pseudo code
+                }
+                catch (Exception e) {
+                    Log.e("something","went very wrong");
+                }
             }
         });
 
@@ -46,10 +63,23 @@ public class MainActivity extends AppCompatActivity {
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, PictureActivity.class);
-                i.putExtra("database", "book");
-                MainActivity.this.startActivity(i);
-                MainActivity.this.finish();
+                InputStream song1 = this.getClass().getClassLoader().getResourceAsStream("/res/drawable/lilostitch.jpg");
+                String s = getPackageName();
+                PackageManager m = getPackageManager();
+                try {
+                    PackageInfo p = m.getPackageInfo(s, 0);
+                    s = p.applicationInfo.dataDir;
+                    Uri song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.alice);
+                    Intent myIntent = new Intent(MainActivity.this, PictureActivity.class);
+                    //myIntent.putExtra("image", imageBitmap); //Optional parameters
+                    myIntent.putExtra("uri", song1Url.toString());
+                    Log.e("Test",song1Url.toString());
+                    startActivityForResult(myIntent, REQUEST_TAKE_PHOTO);
+                    ; //<- pseudo code
+                }
+                catch (Exception e) {
+                    Log.e("something","went very wrong");
+                }
             }
         });
 
@@ -57,10 +87,23 @@ public class MainActivity extends AppCompatActivity {
         children.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, PictureActivity.class);
-                i.putExtra("database", "children");
-                MainActivity.this.startActivity(i);
-                MainActivity.this.finish();
+                InputStream song1 = this.getClass().getClassLoader().getResourceAsStream("/res/drawable/peterrabbit.jpg");
+                String s = getPackageName();
+                PackageManager m = getPackageManager();
+                try {
+                    PackageInfo p = m.getPackageInfo(s, 0);
+                    s = p.applicationInfo.dataDir;
+                    Uri song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.peterrabbit);
+                    Intent myIntent = new Intent(MainActivity.this, PictureActivity.class);
+                    //myIntent.putExtra("image", imageBitmap); //Optional parameters
+                    myIntent.putExtra("uri", song1Url.toString());
+                    Log.e("Test",song1Url.toString());
+                    startActivityForResult(myIntent, REQUEST_TAKE_PHOTO);
+                    ; //<- pseudo code
+                }
+                catch (Exception e) {
+                    Log.e("something","went very wrong");
+                }
             }
         });
 
@@ -68,10 +111,52 @@ public class MainActivity extends AppCompatActivity {
         alph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, PictureActivity.class);
-                i.putExtra("database", "alph");
-                MainActivity.this.startActivity(i);
-                MainActivity.this.finish();
+                int images = 7;
+                Random random = new Random();
+                int selection = random.nextInt(images + 1);
+                Uri song1Url;
+                switch (selection) {
+                    case 0:
+                        song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.print1);
+                        break;
+                    case 1:
+                        song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.print2);
+                        break;
+                    case 2:
+                        song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.print3);
+                        break;
+                    case 3:
+                        song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.print4);
+                        break;
+                    case 4:
+                        song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.print5);
+                        break;
+                    case 5:
+                        song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.print6);
+                        break;
+                    case 6:
+                        song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.print7);
+                        break;
+                    default:
+                        song1Url = Uri.parse("android.resource://com.example.bunnyears/" + R.drawable.print1);
+                        break;
+                }
+                InputStream song1 = this.getClass().getClassLoader().getResourceAsStream("/res/drawable/lilostitch.jpg");
+                String s = getPackageName();
+                PackageManager m = getPackageManager();
+                try {
+                    PackageInfo p = m.getPackageInfo(s, 0);
+                    s = p.applicationInfo.dataDir;
+                    Intent myIntent = new Intent(MainActivity.this, PictureActivity.class);
+                    //myIntent.putExtra("image", imageBitmap); //Optional parameters
+                    myIntent.putExtra("uri", song1Url.toString());
+                    Log.e("Test",song1Url.toString());
+                    startActivityForResult(myIntent, REQUEST_TAKE_PHOTO);
+                    ; //<- pseudo code
+                }
+                catch (Exception e) {
+                    Log.e("something","went very wrong");
+                }
             }
         });
 
