@@ -22,7 +22,6 @@ public class ScoreActivity extends AppCompatActivity {
     List<String> results;
     List<String> words;
     Uri uri;
-    MediaPlayer myMediaPlayer;
     MediaPlayer tadaPlayer;
 
     public TextToSpeech myTTS;
@@ -57,8 +56,6 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(ScoreActivity.this, MainActivity.class);
                 myIntent.putExtra("uri", uri.toString());
-                myMediaPlayer = MediaPlayer.create(ScoreActivity.this, R.raw.song);
-                myMediaPlayer.start();
                 ScoreActivity.this.startActivity(myIntent);
             }
         });
