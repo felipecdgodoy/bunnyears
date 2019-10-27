@@ -3,6 +3,7 @@ package com.example.bunnyears;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -21,11 +22,22 @@ public class ScoreActivity extends AppCompatActivity {
     List<String> results;
     List<String> words;
     Uri uri;
+    MediaPlayer myMediaPlayer;
+    MediaPlayer tadaPlayer;
+
     public TextToSpeech myTTS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
+        tadaPlayer = MediaPlayer.create((ScoreActivity.this), R.raw.tada);
+        tadaPlayer.start();
+        tadaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                speak("Press playback to hear the solution");
+            }
+        });
         confidences = convertF((float[])getIntent().getExtras().get("confidences"));
         results = convertS(asStrings((Object[])getIntent().getExtras().get("results")));
         words = convertS(asStrings((Object[])getIntent().getExtras().get("words")));
@@ -45,6 +57,8 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myIntent = new Intent(ScoreActivity.this, MainActivity.class);
                 myIntent.putExtra("uri", uri.toString());
+                myMediaPlayer = MediaPlayer.create(ScoreActivity.this, R.raw.song);
+                myMediaPlayer.start();
                 ScoreActivity.this.startActivity(myIntent);
             }
         });
@@ -99,7 +113,6 @@ public class ScoreActivity extends AppCompatActivity {
                     finish();
                 } else {
                     myTTS.setLanguage(Locale.US);
-                    speak("Press playback to hear the solution");
                 }
             }
         });

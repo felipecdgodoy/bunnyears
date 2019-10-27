@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextToSpeech myTTS;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
