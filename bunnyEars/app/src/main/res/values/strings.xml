@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"> </string>
+    <string name="app_name">Bunny Ears</string>
     <string name="tab_text_1">Data Base</string>
     <string name="tab_text_2">Picture</string>
     <string name="title_activity_basic">BasicActivity</string>
