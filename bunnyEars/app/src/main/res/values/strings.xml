@@ -18,4 +18,9 @@
     <string name="Reading">put a reading here</string>
     <string name="Record">Record</string>
     <string name="Submit">Submit</string>
+
+    <string name="Movie">Movie Quotes</string>
+    <string name="Book">Book Quotes</string>
+    <string name="Children">Children\'s Book Quotes</string>
+    <string name="Alphabet">Alphabet</string>
 </resources>
