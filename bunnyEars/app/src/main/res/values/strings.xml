@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">bunnyEars</string>
+    <string name="app_name"> </string>
     <string name="tab_text_1">Data Base</string>
     <string name="tab_text_2">Picture</string>
     <string name="title_activity_basic">BasicActivity</string>
@@ -21,6 +21,16 @@
 
     <string name="Movie">Movie Quotes</string>
     <string name="Book">Book Quotes</string>
-    <string name="Children">Children\'s Book Quotes</string>
+    <string name="Children">Kid\'s Book Quotes</string>
     <string name="Alphabet">Alphabet</string>
+    <string name="bunny_ears">Bunny Ears</string>
+    <string name="corner">corner border</string>
+
+    <string name="logoDesc">bunny</string>
+    <string name="score">score</string>
+    <string name="pb">Play Back</string>
+    <string name="tryAgain">Try Again</string>
+    <string name="done">Done</string>
+
+
 </resources>

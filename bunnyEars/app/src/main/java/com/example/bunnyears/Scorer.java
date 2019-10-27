@@ -45,7 +45,7 @@ public class Scorer {
         }
         double result = Math.ceil((double) 1181.0 * (score / (mult * Math.min(solutionAL.size(), answerAL.size()))));
         result = Math.min(result, 1000); // max score is 1000
-//        result = Math.max(result, 200 + (Math.max(rand.nextInt(201), result) / 10)); // min score is between [200, 220]
+        result = Math.max(result, 200 + (Math.max(rand.nextInt(201), result) / 10)); // min score is between [200, 220]
         return (int) result;
     }
     public static void replace(List<String> strings)

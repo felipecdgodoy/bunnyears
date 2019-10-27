@@ -170,9 +170,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SplashActivity.myMediaPlayer.release();
+//                SplashActivity.myMediaPlayer.release();
                 initializeTextToSpeech();
-                myTTS.speak("Take a picture of your favorite book!", TextToSpeech.QUEUE_FLUSH, null);
                 dispatchTakePictureIntent();
             }
         });

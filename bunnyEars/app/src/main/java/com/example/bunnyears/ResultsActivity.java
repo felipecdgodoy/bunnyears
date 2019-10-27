@@ -7,14 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ResultsActivity extends AppCompatActivity {
 
-    public static MediaPlayer myMediaPlayer;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        myMediaPlayer = MediaPlayer.create(ResultsActivity.this, R.raw.song);
-        myMediaPlayer.start();
         setContentView(R.layout.activity_results);
     }
 
